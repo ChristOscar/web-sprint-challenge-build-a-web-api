@@ -12,16 +12,9 @@ I need this code, but don't know where, perhaps should make some middleware, don
 
 Pull your server into this file and start it!
 */
-const express = require('express');
-const server = express();
-const PORT = process.env.PORT || 9000
-
 require('dotenv').config();
-const projectsRouter = require('./api/projects/projects-router');
-const { logger } = require('./api/projects/projects-middleware');
-
-server.use('/api/projects', projectsRouter);
-server.use(logger);
+const server = require('./api/server')
+const PORT = process.env.PORT || 9000
 
 server.listen(PORT, ()=>{
     console.log(`Ready for Anything Chief, Listening on ${PORT}`);
