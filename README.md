@@ -147,7 +147,21 @@ We have provided test data for all the resources.
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
-1. Understand and explain the use of Middleware.
-1. The basic principles of the REST architectural style.
-1. Understand and explain the use of Express Routers.
-1. Describe tooling used to manually test the correctness of an API.
+
+- Node.js and Express are super useful because they enable the ability for developer to use one language to develop for frontend and backend. With Express built on it enables the us to build the back end w/ JSON and using middle ware for API's
+
+2. Understand and explain the use of Middleware.
+
+- Middleware allows developers to parse through JSON and gives the developer the ability to control the functionality and behavior of the API.
+
+3. The basic principles of the REST architectural style.
+
+- REST is a software architectural style that defines the set of rules to be used for creating web services. Web services which follow the REST architectural style are known as RESTful web services. It allows API to access and manipulate web / data. It allows for API's to return the necessary information for clients, aswell as keeping it accessible through a single URL. (http://localhost:6060/api/projects/1)(examnple URL)
+
+4. Understand and explain the use of Express Routers.
+
+- These allow us to direct certain requests to certain paths and allow routes for easy separation of concerns making debugging an easier task and making the API user friendly.
+
+5. Describe tooling used to manually test the correctness of an API.
+
+- POSTMAN is the tool I use to test the API and ensure i get the correct response / request. There are others tools that allow manual testing, Httpie, which allow the developer to make request against endpoints, and see if the expected value is returned from the API
