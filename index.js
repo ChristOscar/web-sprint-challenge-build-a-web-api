@@ -18,7 +18,10 @@ const PORT = process.env.PORT || 9000
 
 require('dotenv').config();
 const projectsRouter = require('./api/projects/projects-router');
+const { logger } = require('./api/projects/projects-middleware');
+
 server.use('/api/projects', projectsRouter);
+server.use(logger);
 
 server.listen(PORT, ()=>{
     console.log(`Ready for Anything Chief, Listening on ${PORT}`);

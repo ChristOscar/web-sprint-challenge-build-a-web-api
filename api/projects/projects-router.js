@@ -1,10 +1,12 @@
 // Write your "projects" router here!
-const Project = require('../projects/projects-model');
+const Projects = require('../projects/projects-model');
+const {validateProject} = require('../projects/projects-middleware')
 const express = require('express');
 const router = express.Router();
 
+
 router.get('/', (req, res)=>{
-    Project.get()
+    Projects.get()
     .then(projects => {
         if(!projects) {
           res.status(200).json([])
@@ -19,7 +21,7 @@ router.get('/', (req, res)=>{
 });
 
 router.get('/:id', (req, res) => {
-    Project.get(req.params.id)
+    Projects.get(req.params.id)
       .then(project => {
         if (!project) {
             res.status(404).json({
@@ -34,6 +36,16 @@ router.get('/:id', (req, res) => {
           error: err.message
         })
       })
-  })
+  });
+
+  router.post('/', validateProject, (req, res) => {
+    Projects.insert(req.project)
+        .then(() => {
+            res.status(201).json(req.project);
+        })
+        .catch(() => {
+            res.status(404).json({message: 'failed to post project'});
+        })
+});
 
 module.exports = router;
